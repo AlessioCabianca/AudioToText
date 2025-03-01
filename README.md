@@ -31,9 +31,9 @@ AudioToText is a .NET 8 console application that extracts audio from video files
 3. **Set Azure credentials**:
 
    ```bash
-   dotnet user-secrets set "AzureApiKey" "your_azure_api_key"
-   dotnet user-secrets set "AzureEndpoint" "your_azure_endpoint"
-   dotnet user-secrets set "AzureModelName" "whisper"
+   dotnet user-secrets set "AzureOpenAi:ApiKey" "your_azure_api_key"
+   dotnet user-secrets set "AzureOpenAi:Endpoint" "your_azure_endpoint"
+   dotnet user-secrets set "AzureOpenAi:ModelName" "whisper"
    ```
 
    Replace `"your_azure_api_key"` and `"your_azure_endpoint"` with your actual Azure OpenAI credentials.
