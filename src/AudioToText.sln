@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioToText", "AudioToText.csproj", "{C867F51C-6172-4A89-A9D6-E4E406CD4469}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioToText.Tests", "..\test\AudioToText.Tests.csproj", "{B4EAC9D4-9FB5-45D5-8076-D0068F812D50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02DFF1A5-669F-4B81-B119-CB29054BA680}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EDCB3757-5506-4C70-906C-2DFD5F513B9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,13 @@ Global
 		{C867F51C-6172-4A89-A9D6-E4E406CD4469}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C867F51C-6172-4A89-A9D6-E4E406CD4469}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C867F51C-6172-4A89-A9D6-E4E406CD4469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4EAC9D4-9FB5-45D5-8076-D0068F812D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EAC9D4-9FB5-45D5-8076-D0068F812D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EAC9D4-9FB5-45D5-8076-D0068F812D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EAC9D4-9FB5-45D5-8076-D0068F812D50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C867F51C-6172-4A89-A9D6-E4E406CD4469} = {02DFF1A5-669F-4B81-B119-CB29054BA680}
+		{B4EAC9D4-9FB5-45D5-8076-D0068F812D50} = {EDCB3757-5506-4C70-906C-2DFD5F513B9E}
 	EndGlobalSection
 EndGlobal

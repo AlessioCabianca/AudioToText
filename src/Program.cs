@@ -37,6 +37,11 @@ public abstract class Program
         if (string.IsNullOrWhiteSpace(audioOutputPath))
         {
             var directory = Path.GetDirectoryName(videoPath);
+            if (directory is null)
+            {
+                Console.WriteLine("Error: the directory of the video file cannot be null.");
+                return;
+            }
             var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(videoPath);
             var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             var newFileName = $"{fileNameWithoutExtension}_{timestamp}.wav";
