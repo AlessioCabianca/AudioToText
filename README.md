@@ -38,6 +38,12 @@ AudioToText is a .NET 8 console application that extracts audio from video files
 
    Replace `"your_azure_api_key"` and `"your_azure_endpoint"` with your actual Azure OpenAI credentials.
 
+4. **Install ffmpeg**:
+
+   ```bash
+   brew install ffmpeg
+   ```
+
 ## 💻 Usage
 
 1. **Build the application**:
