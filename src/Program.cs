@@ -8,30 +8,30 @@ namespace AudioToText;
 
 public abstract class Program
 {
-    
+    private const string OptHomebrewBinFfmpeg = "/opt/homebrew/bin/ffmpeg";
     static async Task Main(string[] args)
     {
         var host = BuildHost(args);
         
-        Console.WriteLine("Inserisci il percorso del file video/audio (.mp4):");
+        Console.WriteLine("Enter the path to the video/audio file (.mp4):");
         var videoPath = Console.ReadLine();
         if (string.IsNullOrWhiteSpace(videoPath))
         {
-            Console.WriteLine("Errore: il percorso del file video non può essere vuoto.");
+            Console.WriteLine("Error: the path to the video file cannot be empty.");
             return;
         }
 
         Console.WriteLine(
-            "(Opzionale) Inserisci l'orario di inizio (in secondi) [premi Invio per usare l'inizio del video]:");
+            "(Optional) Enter the start time (in seconds) [press Enter to use the start of the video]:");
         var startTimeInput = Console.ReadLine();
         var startTime = string.IsNullOrEmpty(startTimeInput) ? 0 : int.Parse(startTimeInput);
 
         Console.WriteLine(
-            "(Opzionale) Inserisci l'orario di fine (in secondi) [premi Invio per usare la fine del video]:");
+            "(Optional) Enter the end time (in seconds) [press Enter to use end of video]:");
         var endTimeInput = Console.ReadLine();
         int? endTime = string.IsNullOrEmpty(endTimeInput) ? null : int.Parse(endTimeInput);
 
-        Console.WriteLine("(Opzionale) Inserisci il percorso per salvare il file audio temporaneo (.wav):");
+        Console.WriteLine("(Optional) Enter the path to save the temporary audio file (.wav):");
         var audioOutputPath = Console.ReadLine();
 
         if (string.IsNullOrWhiteSpace(audioOutputPath))
@@ -50,12 +50,12 @@ public abstract class Program
             var transcribeAudioResponse = await GetAudioService(host)
                 .TranscribeAudio(audioOutputPath);
 
-            Console.WriteLine("Trascrizione completata:");
+            Console.WriteLine("Transcript completed:");
             Console.WriteLine(transcribeAudioResponse.Text);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Errore: {ex.Message}");
+            Console.WriteLine($"Error: {ex.Message}");
         }
     }
 
@@ -82,7 +82,7 @@ public abstract class Program
 
         var processInfo = new ProcessStartInfo
         {
-            FileName = "/opt/homebrew/bin/ffmpeg",
+            FileName = OptHomebrewBinFfmpeg,
             Arguments = ffmpegCommand,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
@@ -98,7 +98,7 @@ public abstract class Program
         if (process.ExitCode != 0)
         {
             var error = process.StandardError.ReadToEnd();
-            throw new InvalidProgramException($"Errore FFmpeg: {error}");
+            throw new InvalidProgramException($"Error FFmpeg: {error}");
         }
     }
 
